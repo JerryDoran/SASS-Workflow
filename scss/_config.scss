@@ -1,0 +1,30 @@
+// VARIABLES
+$deep-blue: #032f3e;
+$main-white: #fff;
+$section-heading: 28px;
+$banner-heading: 46px;
+
+body {
+  font-family: sans-serif;
+  background: #f8f9fb;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}

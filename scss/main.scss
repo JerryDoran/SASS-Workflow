@@ -1,0 +1,99 @@
+@import 'config';
+@import 'mixins';
+
+// MAIN NAV
+#main-nav {
+  background: $deep-blue;
+
+  ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  a {
+    color: $main-white;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+
+    // Bring in a mixin
+    @include hoverEffect;
+  }
+
+  li {
+    @include mediaQuery(800px) {
+      // This will make the nav links stack on top of each other.
+      // This width property will be put in place of the @content in the mediaQuery mixin
+      width: 100%;
+      color: red;
+    }
+  }
+}
+
+section h1 {
+  font-size: $section-heading;
+  color: $deep-blue;
+}
+
+// BANNER SECTIONS
+.lead-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/dist/img/banner-1.png') center no-repeat;
+  background-size: cover;
+
+  // This is how to bring in a mixin
+  @include banner;
+  text-align: right;
+}
+
+.lessons-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/dist/img/banner-2.png') center no-repeat;
+  background-size: cover;
+
+  // Bring in a mixin
+  @include banner;
+
+  li {
+    text-transform: uppercase;
+    font-size: 20px;
+    max-width: 500px;
+    margin: 60px 0;
+  }
+}
+
+// SERVICES SECTION
+#services {
+  text-align: center;
+
+  img {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    margin: 10px 0;
+    color: $deep-blue;
+    font-weight: bold;
+    transition: color 450ms ease;
+
+    &:hover {
+      // More color functions at sass-lang.com
+      color: complement($deep-blue);
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+
+    li {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+// MIXINS
+@mixin banner {
+  width: 100%;
+  height: 700px;
+  position: relative;
+  color: $main-white;
+  margin-bottom: 40px;
+
+  .banner-content {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+  }
+
+  span {
+    font-size: $banner-heading;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    @include mediaQuery(2000px, 1200px) {
+      font-size: 68px;
+    }
+  }
+
+  span.title {
+    font-weight: normal;
+    margin-bottom: 30px;
+  }
+}
+
+@mixin hoverEffect {
+  &:hover {
+    background: lighten($deep-blue, 5);
+  }
+}
+
+// Adding three dots allows for more than one argument
+@mixin mediaQuery($arg...) {
+  @if length($arg) == 1 {
+    @media (max-width: nth($arg, 1)) {
+      @content;
+    }
+  }
+
+  @if length($arg) == 2 {
+    @media (max-width: nth($arg, 1)) and (min-width: nth($arg, 2)) {
+      @content;
+    }
+  }
+}
